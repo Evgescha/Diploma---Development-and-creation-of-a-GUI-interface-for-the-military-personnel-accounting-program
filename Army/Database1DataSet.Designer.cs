@@ -72,6 +72,8 @@ namespace Army {
         
         private global::System.Data.DataRelation relationЯзыкиИностранный;
         
+        private global::System.Data.DataRelation relationПодразделениеГлавная;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -515,6 +517,7 @@ namespace Army {
             this.relationВладение_языкомИностранный = this.Relations["Владение языкомИностранный"];
             this.relationГлавнаяИностранный = this.Relations["ГлавнаяИностранный"];
             this.relationЯзыкиИностранный = this.Relations["ЯзыкиИностранный"];
+            this.relationПодразделениеГлавная = this.Relations["ПодразделениеГлавная"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -595,6 +598,10 @@ namespace Army {
                         this.tableЯзыки.НазваниеColumn}, new global::System.Data.DataColumn[] {
                         this.tableИностранный.ЯзыкColumn}, false);
             this.Relations.Add(this.relationЯзыкиИностранный);
+            this.relationПодразделениеГлавная = new global::System.Data.DataRelation("ПодразделениеГлавная", new global::System.Data.DataColumn[] {
+                        this.tableПодразделение.НаименованиеColumn}, new global::System.Data.DataColumn[] {
+                        this.tableГлавная.ПодразделениеColumn}, false);
+            this.Relations.Add(this.relationПодразделениеГлавная);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1081,6 +1088,8 @@ namespace Army {
             
             private global::System.Data.DataColumn columnПримечание;
             
+            private global::System.Data.DataColumn columnПодразделение;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ГлавнаяDataTable() {
@@ -1300,6 +1309,14 @@ namespace Army {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ПодразделениеColumn {
+                get {
+                    return this.columnПодразделение;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1357,7 +1374,8 @@ namespace Army {
                         int _Продолжительность_службы__лет_, 
                         int _Окончание_контракта_год_, 
                         СпециализацияRow parentСпециализацияRowByСпециализацияГлавная, 
-                        string Примечание) {
+                        string Примечание, 
+                        ПодразделениеRow parentПодразделениеRowByПодразделениеГлавная) {
                 ГлавнаяRow rowГлавнаяRow = ((ГлавнаяRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1382,7 +1400,8 @@ namespace Army {
                         _Продолжительность_службы__лет_,
                         _Окончание_контракта_год_,
                         null,
-                        Примечание};
+                        Примечание,
+                        null};
                 if ((parentНациональностьRowByНациональностьГлавная != null)) {
                     columnValuesArray[7] = parentНациональностьRowByНациональностьГлавная[0];
                 }
@@ -1397,6 +1416,9 @@ namespace Army {
                 }
                 if ((parentСпециализацияRowByСпециализацияГлавная != null)) {
                     columnValuesArray[21] = parentСпециализацияRowByСпециализацияГлавная[0];
+                }
+                if ((parentПодразделениеRowByПодразделениеГлавная != null)) {
+                    columnValuesArray[23] = parentПодразделениеRowByПодразделениеГлавная[0];
                 }
                 rowГлавнаяRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowГлавнаяRow);
@@ -1450,6 +1472,7 @@ namespace Army {
                 this._columnОкончание_контракта_год_ = base.Columns["Окончание контракта(год)"];
                 this.columnСпециализация = base.Columns["Специализация"];
                 this.columnПримечание = base.Columns["Примечание"];
+                this.columnПодразделение = base.Columns["Подразделение"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1511,6 +1534,8 @@ namespace Army {
                 base.Columns.Add(this.columnСпециализация);
                 this.columnПримечание = new global::System.Data.DataColumn("Примечание", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПримечание);
+                this.columnПодразделение = new global::System.Data.DataColumn("Подразделение", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПодразделение);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnИД}, true));
                 this.columnИД.AutoIncrement = true;
@@ -1536,6 +1561,7 @@ namespace Army {
                 this._columnСлужит_с_год_.MaxLength = 255;
                 this.columnСпециализация.MaxLength = 255;
                 this.columnПримечание.MaxLength = 536870910;
+                this.columnПодразделение.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5176,6 +5202,22 @@ namespace Army {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Подразделение {
+                get {
+                    try {
+                        return ((string)(this[this.tableГлавная.ПодразделениеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Подразделение\' в таблице \'Главная\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableГлавная.ПодразделениеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ДолжностьRow ДолжностьRow {
                 get {
                     return ((ДолжностьRow)(this.GetParentRow(this.Table.ParentRelations["ДолжностьГлавная"])));
@@ -5226,6 +5268,17 @@ namespace Army {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["СпециализацияГлавная"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПодразделениеRow ПодразделениеRow {
+                get {
+                    return ((ПодразделениеRow)(this.GetParentRow(this.Table.ParentRelations["ПодразделениеГлавная"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ПодразделениеГлавная"]);
                 }
             }
             
@@ -5491,6 +5544,18 @@ namespace Army {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetПримечаниеNull() {
                 this[this.tableГлавная.ПримечаниеColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsПодразделениеNull() {
+                return this.IsNull(this.tableГлавная.ПодразделениеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetПодразделениеNull() {
+                this[this.tableГлавная.ПодразделениеColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6372,6 +6437,17 @@ namespace Army {
                 }
                 set {
                     this[this.tableПодразделение.НаименованиеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ГлавнаяRow[] GetГлавнаяRows() {
+                if ((this.Table.ChildRelations["ПодразделениеГлавная"] == null)) {
+                    return new ГлавнаяRow[0];
+                }
+                else {
+                    return ((ГлавнаяRow[])(base.GetChildRows(this.Table.ChildRelations["ПодразделениеГлавная"])));
                 }
             }
         }
@@ -7273,6 +7349,7 @@ namespace Army.Database1DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Окончание контракта(год)", "Окончание контракта(год)");
             tableMapping.ColumnMappings.Add("Специализация", "Специализация");
             tableMapping.ColumnMappings.Add("Примечание", "Примечание");
+            tableMapping.ColumnMappings.Add("Подразделение", "Подразделение");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7295,7 +7372,8 @@ namespace Army.Database1DataSetTableAdapters {
                 "(`Служит с(год)` = ?)) AND ((? = 1 AND `Продолжительность службы (лет)` IS NULL)" +
                 " OR (`Продолжительность службы (лет)` = ?)) AND ((? = 1 AND `Окончание контракта" +
                 "(год)` IS NULL) OR (`Окончание контракта(год)` = ?)) AND ((? = 1 AND `Специализа" +
-                "ция` IS NULL) OR (`Специализация` = ?)))";
+                "ция` IS NULL) OR (`Специализация` = ?)) AND ((? = 1 AND `Подразделение` IS NULL)" +
+                " OR (`Подразделение` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ИД", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ИД", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Фамилия", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, true, null));
@@ -7340,9 +7418,11 @@ namespace Army.Database1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Окончание_контракта(год)", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Окончание контракта(год)", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Специализация", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Специализация", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Специализация", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Специализация", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Подразделение", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Подразделение", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Подразделение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Подразделение", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Главная` (`Фамилия`, `Имя`, `Отчество`, `Дата рождения`, `Пол`, `Телефон`, `Национальность`, `Семейное положение`, `Паспорт(Серия, номер)`, `Кем и когда выдан`, `Место регистрации`, `Личный номер`, `Звание`, `№ приказа присвоения звания`, `Дата присвоения звания`, `Должность`, `Номер и дата приказа о назначении на должность`, `Служит с(год)`, `Продолжительность службы (лет)`, `Окончание контракта(год)`, `Специализация`, `Примечание`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Главная` (`Фамилия`, `Имя`, `Отчество`, `Дата рождения`, `Пол`, `Телефон`, `Национальность`, `Семейное положение`, `Паспорт(Серия, номер)`, `Кем и когда выдан`, `Место регистрации`, `Личный номер`, `Звание`, `№ приказа присвоения звания`, `Дата присвоения звания`, `Должность`, `Номер и дата приказа о назначении на должность`, `Служит с(год)`, `Продолжительность службы (лет)`, `Окончание контракта(год)`, `Специализация`, `Примечание`, `Подразделение`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Имя", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Current, false, null));
@@ -7366,6 +7446,7 @@ namespace Army.Database1DataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Окончание_контракта(год)", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Окончание контракта(год)", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Специализация", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Специализация", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Примечание", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Примечание", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Подразделение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Подразделение", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE `Главная` SET `Фамилия` = ?, `Имя` = ?, `Отчество` = ?, `Дата рождения` = " +
@@ -7374,26 +7455,28 @@ namespace Army.Database1DataSetTableAdapters {
                 "ный номер` = ?, `Звание` = ?, `№ приказа присвоения звания` = ?, `Дата присвоени" +
                 "я звания` = ?, `Должность` = ?, `Номер и дата приказа о назначении на должность`" +
                 " = ?, `Служит с(год)` = ?, `Продолжительность службы (лет)` = ?, `Окончание конт" +
-                "ракта(год)` = ?, `Специализация` = ?, `Примечание` = ? WHERE ((`ИД` = ?) AND ((?" +
-                " = 1 AND `Фамилия` IS NULL) OR (`Фамилия` = ?)) AND ((? = 1 AND `Имя` IS NULL) O" +
-                "R (`Имя` = ?)) AND ((? = 1 AND `Отчество` IS NULL) OR (`Отчество` = ?)) AND ((? " +
-                "= 1 AND `Дата рождения` IS NULL) OR (`Дата рождения` = ?)) AND ((? = 1 AND `Пол`" +
-                " IS NULL) OR (`Пол` = ?)) AND ((? = 1 AND `Телефон` IS NULL) OR (`Телефон` = ?))" +
-                " AND ((? = 1 AND `Национальность` IS NULL) OR (`Национальность` = ?)) AND ((? = " +
-                "1 AND `Семейное положение` IS NULL) OR (`Семейное положение` = ?)) AND ((? = 1 A" +
-                "ND `Паспорт(Серия, номер)` IS NULL) OR (`Паспорт(Серия, номер)` = ?)) AND ((? = " +
-                "1 AND `Кем и когда выдан` IS NULL) OR (`Кем и когда выдан` = ?)) AND ((? = 1 AND" +
-                " `Место регистрации` IS NULL) OR (`Место регистрации` = ?)) AND ((? = 1 AND `Лич" +
-                "ный номер` IS NULL) OR (`Личный номер` = ?)) AND ((? = 1 AND `Звание` IS NULL) O" +
-                "R (`Звание` = ?)) AND ((? = 1 AND `№ приказа присвоения звания` IS NULL) OR (`№ " +
-                "приказа присвоения звания` = ?)) AND ((? = 1 AND `Дата присвоения звания` IS NUL" +
-                "L) OR (`Дата присвоения звания` = ?)) AND ((? = 1 AND `Должность` IS NULL) OR (`" +
-                "Должность` = ?)) AND ((? = 1 AND `Номер и дата приказа о назначении на должность" +
-                "` IS NULL) OR (`Номер и дата приказа о назначении на должность` = ?)) AND ((? = " +
-                "1 AND `Служит с(год)` IS NULL) OR (`Служит с(год)` = ?)) AND ((? = 1 AND `Продол" +
-                "жительность службы (лет)` IS NULL) OR (`Продолжительность службы (лет)` = ?)) AN" +
-                "D ((? = 1 AND `Окончание контракта(год)` IS NULL) OR (`Окончание контракта(год)`" +
-                " = ?)) AND ((? = 1 AND `Специализация` IS NULL) OR (`Специализация` = ?)))";
+                "ракта(год)` = ?, `Специализация` = ?, `Примечание` = ?, `Подразделение` = ? WHER" +
+                "E ((`ИД` = ?) AND ((? = 1 AND `Фамилия` IS NULL) OR (`Фамилия` = ?)) AND ((? = 1" +
+                " AND `Имя` IS NULL) OR (`Имя` = ?)) AND ((? = 1 AND `Отчество` IS NULL) OR (`Отч" +
+                "ество` = ?)) AND ((? = 1 AND `Дата рождения` IS NULL) OR (`Дата рождения` = ?)) " +
+                "AND ((? = 1 AND `Пол` IS NULL) OR (`Пол` = ?)) AND ((? = 1 AND `Телефон` IS NULL" +
+                ") OR (`Телефон` = ?)) AND ((? = 1 AND `Национальность` IS NULL) OR (`Национально" +
+                "сть` = ?)) AND ((? = 1 AND `Семейное положение` IS NULL) OR (`Семейное положение" +
+                "` = ?)) AND ((? = 1 AND `Паспорт(Серия, номер)` IS NULL) OR (`Паспорт(Серия, ном" +
+                "ер)` = ?)) AND ((? = 1 AND `Кем и когда выдан` IS NULL) OR (`Кем и когда выдан` " +
+                "= ?)) AND ((? = 1 AND `Место регистрации` IS NULL) OR (`Место регистрации` = ?))" +
+                " AND ((? = 1 AND `Личный номер` IS NULL) OR (`Личный номер` = ?)) AND ((? = 1 AN" +
+                "D `Звание` IS NULL) OR (`Звание` = ?)) AND ((? = 1 AND `№ приказа присвоения зва" +
+                "ния` IS NULL) OR (`№ приказа присвоения звания` = ?)) AND ((? = 1 AND `Дата прис" +
+                "воения звания` IS NULL) OR (`Дата присвоения звания` = ?)) AND ((? = 1 AND `Долж" +
+                "ность` IS NULL) OR (`Должность` = ?)) AND ((? = 1 AND `Номер и дата приказа о на" +
+                "значении на должность` IS NULL) OR (`Номер и дата приказа о назначении на должно" +
+                "сть` = ?)) AND ((? = 1 AND `Служит с(год)` IS NULL) OR (`Служит с(год)` = ?)) AN" +
+                "D ((? = 1 AND `Продолжительность службы (лет)` IS NULL) OR (`Продолжительность с" +
+                "лужбы (лет)` = ?)) AND ((? = 1 AND `Окончание контракта(год)` IS NULL) OR (`Окон" +
+                "чание контракта(год)` = ?)) AND ((? = 1 AND `Специализация` IS NULL) OR (`Специа" +
+                "лизация` = ?)) AND ((? = 1 AND `Подразделение` IS NULL) OR (`Подразделение` = ?)" +
+                "))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Имя", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Имя", global::System.Data.DataRowVersion.Current, false, null));
@@ -7417,6 +7500,7 @@ namespace Army.Database1DataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Окончание_контракта(год)", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Окончание контракта(год)", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Специализация", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Специализация", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Примечание", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Примечание", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Подразделение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Подразделение", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ИД", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ИД", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Фамилия", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Фамилия", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Фамилия", global::System.Data.DataRowVersion.Original, false, null));
@@ -7460,6 +7544,8 @@ namespace Army.Database1DataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Окончание_контракта(год)", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Окончание контракта(год)", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Специализация", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Специализация", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Специализация", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Специализация", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Подразделение", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Подразделение", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Подразделение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Подразделение", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7475,7 +7561,7 @@ namespace Army.Database1DataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ИД, Фамилия, Имя, Отчество, [Дата рождения], Пол, Телефон, Национальность, [Семейное положение], [Паспорт(Серия, номер)], [Кем и когда выдан], [Место регистрации], [Личный номер], Звание, [№ приказа присвоения звания], [Дата присвоения звания], Должность, [Номер и дата приказа о назначении на должность], [Служит с(год)], [Продолжительность службы (лет)], [Окончание контракта(год)], Специализация, Примечание FROM Главная";
+            this._commandCollection[0].CommandText = @"SELECT ИД, Фамилия, Имя, Отчество, [Дата рождения], Пол, Телефон, Национальность, [Семейное положение], [Паспорт(Серия, номер)], [Кем и когда выдан], [Место регистрации], [Личный номер], Звание, [№ приказа присвоения звания], [Дата присвоения звания], Должность, [Номер и дата приказа о назначении на должность], [Служит с(год)], [Продолжительность службы (лет)], [Окончание контракта(год)], Специализация, Примечание, Подразделение FROM Главная";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7558,7 +7644,8 @@ namespace Army.Database1DataSetTableAdapters {
                     string _Original_Служит_с_год_, 
                     global::System.Nullable<int> _Original_Продолжительность_службы__лет_, 
                     global::System.Nullable<int> _Original_Окончание_контракта_год_, 
-                    string Original_Специализация) {
+                    string Original_Специализация, 
+                    string Original_Подразделение) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ИД));
             if ((Original_Фамилия == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -7728,6 +7815,14 @@ namespace Army.Database1DataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[42].Value = ((string)(Original_Специализация));
             }
+            if ((Original_Подразделение == null)) {
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((string)(Original_Подразделение));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7770,7 +7865,8 @@ namespace Army.Database1DataSetTableAdapters {
                     global::System.Nullable<int> _Продолжительность_службы__лет_, 
                     global::System.Nullable<int> _Окончание_контракта_год_, 
                     string Специализация, 
-                    string Примечание) {
+                    string Примечание, 
+                    string Подразделение) {
             if ((Фамилия == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -7903,6 +7999,12 @@ namespace Army.Database1DataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = ((string)(Примечание));
             }
+            if ((Подразделение == null)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(Подразделение));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7946,6 +8048,7 @@ namespace Army.Database1DataSetTableAdapters {
                     global::System.Nullable<int> _Окончание_контракта_год_, 
                     string Специализация, 
                     string Примечание, 
+                    string Подразделение, 
                     int Original_ИД, 
                     string Original_Фамилия, 
                     string Original_Имя, 
@@ -7967,7 +8070,8 @@ namespace Army.Database1DataSetTableAdapters {
                     string _Original_Служит_с_год_, 
                     global::System.Nullable<int> _Original_Продолжительность_службы__лет_, 
                     global::System.Nullable<int> _Original_Окончание_контракта_год_, 
-                    string Original_Специализация) {
+                    string Original_Специализация, 
+                    string Original_Подразделение) {
             if ((Фамилия == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8100,174 +8204,188 @@ namespace Army.Database1DataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Примечание));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_ИД));
-            if ((Original_Фамилия == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            if ((Подразделение == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Фамилия));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Подразделение));
+            }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_ИД));
+            if ((Original_Фамилия == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Фамилия));
             }
             if ((Original_Имя == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Имя));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Имя));
             }
             if ((Original_Отчество == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Отчество));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Отчество));
             }
             if ((Original_Дата_рождения.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_Дата_рождения.Value));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(Original_Дата_рождения.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             if ((Original_Пол == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Пол));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Пол));
             }
             if ((Original_Телефон == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Телефон));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Телефон));
             }
             if ((Original_Национальность == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_Национальность));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Национальность));
             }
             if ((Original_Семейное_положение == null)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Семейное_положение));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_Семейное_положение));
             }
             if ((_Original_Паспорт_Серия__номер_ == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(_Original_Паспорт_Серия__номер_));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(_Original_Паспорт_Серия__номер_));
             }
             if ((Original_Кем_и_когда_выдан == null)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_Кем_и_когда_выдан));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_Кем_и_когда_выдан));
             }
             if ((Original_Место_регистрации == null)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_Место_регистрации));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_Место_регистрации));
             }
             if ((Original_Личный_номер == null)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_Личный_номер));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_Личный_номер));
             }
             if ((Original_Звание == null)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_Звание));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_Звание));
             }
             if ((_Original___приказа_присвоения_звания == null)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(_Original___приказа_присвоения_звания));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(_Original___приказа_присвоения_звания));
             }
             if ((Original_Дата_присвоения_звания.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((System.DateTime)(Original_Дата_присвоения_звания.Value));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((System.DateTime)(Original_Дата_присвоения_звания.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             if ((Original_Должность == null)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_Должность));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_Должность));
             }
             if ((Original_Номер_и_дата_приказа_о_назначении_на_должность == null)) {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_Номер_и_дата_приказа_о_назначении_на_должность));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_Номер_и_дата_приказа_о_назначении_на_должность));
             }
             if ((_Original_Служит_с_год_ == null)) {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(_Original_Служит_с_год_));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(_Original_Служит_с_год_));
             }
             if ((_Original_Продолжительность_службы__лет_.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(_Original_Продолжительность_службы__лет_.Value));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((int)(_Original_Продолжительность_службы__лет_.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
             }
             if ((_Original_Окончание_контракта_год_.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(_Original_Окончание_контракта_год_.Value));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((int)(_Original_Окончание_контракта_год_.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
             }
             if ((Original_Специализация == null)) {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_Специализация));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_Специализация));
+            }
+            if ((Original_Подразделение == null)) {
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_Подразделение));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12511,6 +12629,15 @@ namespace Army.Database1DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._подразделениеTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._подразделениеTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._владение_языкомTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Владение_языком.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -12574,15 +12701,6 @@ namespace Army.Database1DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._подразделениеTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._подразделениеTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -12630,6 +12748,14 @@ namespace Army.Database1DataSetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._специализацияTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._подразделениеTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._подразделениеTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -12689,14 +12815,6 @@ namespace Army.Database1DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._подразделениеTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._подразделениеTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -12707,14 +12825,6 @@ namespace Army.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(Database1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._подразделениеTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._подразделениеTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._иностранныйTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Иностранный.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -12768,6 +12878,14 @@ namespace Army.Database1DataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._владение_языкомTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._подразделениеTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._подразделениеTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
