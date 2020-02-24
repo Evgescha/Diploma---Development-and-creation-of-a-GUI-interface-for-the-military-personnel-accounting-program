@@ -36,18 +36,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.главнаяBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet = new Army.Database1DataSet();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.database1DataSet = new Army.Database1DataSet();
-            this.главнаяBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.главнаяTableAdapter = new Army.Database1DataSetTableAdapters.ГлавнаяTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.учебаBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.учебаTableAdapter = new Army.Database1DataSetTableAdapters.УчебаTableAdapter();
             this.иДDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.идВоеннослужащегоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.вУЗDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,8 +53,10 @@
             this.годПоступленияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.годВыпускаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.примечаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            this.учебаBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.учебаTableAdapter = new Army.Database1DataSetTableAdapters.УчебаTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.главнаяBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.учебаBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -127,6 +127,16 @@
             this.comboBox1.TabIndex = 6;
             this.comboBox1.ValueMember = "ИД";
             // 
+            // главнаяBindingSource
+            // 
+            this.главнаяBindingSource.DataMember = "Главная";
+            this.главнаяBindingSource.DataSource = this.database1DataSet;
+            // 
+            // database1DataSet
+            // 
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(141, 37);
@@ -173,16 +183,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // главнаяBindingSource
-            // 
-            this.главнаяBindingSource.DataMember = "Главная";
-            this.главнаяBindingSource.DataSource = this.database1DataSet;
-            // 
             // главнаяTableAdapter
             // 
             this.главнаяTableAdapter.ClearBeforeFill = true;
@@ -204,15 +204,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 13;
-            // 
-            // учебаBindingSource
-            // 
-            this.учебаBindingSource.DataMember = "Учеба";
-            this.учебаBindingSource.DataSource = this.database1DataSet;
-            // 
-            // учебаTableAdapter
-            // 
-            this.учебаTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.Visible = false;
             // 
             // иДDataGridViewTextBoxColumn
             // 
@@ -256,6 +248,15 @@
             this.примечаниеDataGridViewTextBoxColumn.HeaderText = "Примечание";
             this.примечаниеDataGridViewTextBoxColumn.Name = "примечаниеDataGridViewTextBoxColumn";
             // 
+            // учебаBindingSource
+            // 
+            this.учебаBindingSource.DataMember = "Учеба";
+            this.учебаBindingSource.DataSource = this.database1DataSet;
+            // 
+            // учебаTableAdapter
+            // 
+            this.учебаTableAdapter.ClearBeforeFill = true;
+            // 
             // editLang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,8 +279,8 @@
             this.Name = "editLang";
             this.Text = "editLang";
             this.Load += new System.EventHandler(this.editLang_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.главнаяBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.учебаBindingSource)).EndInit();
             this.ResumeLayout(false);

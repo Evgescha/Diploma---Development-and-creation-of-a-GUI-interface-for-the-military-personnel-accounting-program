@@ -75,10 +75,11 @@ namespace Army
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ошибка добавления. Проверьте вводимые данные.");
             }
         }
         private void update() {
+            try { 
             Database1DataSet.Состав_семьиRow row = database1DataSet.Состав_семьи.FindByИД(id);
             row[1]=comboBox1.SelectedValue;
             row[2]=textBox1.Text;
@@ -95,6 +96,11 @@ namespace Army
             this.database1DataSet.AcceptChanges();
             MessageBox.Show("Обновлено. Обновите форму для просмотра");
             this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка обновления. Проверьте вводимые данные.");
+            }
         }
     }
 }

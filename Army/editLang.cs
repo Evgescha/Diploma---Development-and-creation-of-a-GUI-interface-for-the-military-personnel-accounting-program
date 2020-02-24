@@ -72,12 +72,14 @@ namespace Army
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ошибка добавления. Проверьте вводимые данные.");
             }
         }
         private void update()
         {
-            Database1DataSet.УчебаRow row = database1DataSet.Учеба.FindByИД(id);
+            try
+            {
+                Database1DataSet.УчебаRow row = database1DataSet.Учеба.FindByИД(id);
             row[1] = comboBox1.SelectedValue;
             row[2] = textBox1.Text;
             row[3] = textBox2.Text;
@@ -93,6 +95,11 @@ namespace Army
             this.database1DataSet.AcceptChanges();
             MessageBox.Show("Обновлено. Обновите форму для просмотра");
             this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка Обновления. Проверьте вводимые данные.");
+            }
         }
     }
 }

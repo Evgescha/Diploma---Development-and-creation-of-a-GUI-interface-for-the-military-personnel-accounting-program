@@ -68,22 +68,24 @@ namespace Army
                 {
                     int id = int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString());
                     Database1DataSet.ГлавнаяRow row = database1DataSet.Главная.FindByИД(id);
-                    database1DataSet.Главная.RemoveГлавнаяRow(row);
-
-                    
+                    //row.Delete();
+                    this.главнаяBindingSource.RemoveAt(this.главнаяBindingSource.Find("ИД", id));
+                    //database1DataSet.Главная.RemoveГлавнаяRow(row);
+                    //this.главнаяBindingSource.Remove(row);
+                    this.Validate();
                     this.главнаяBindingSource.EndEdit();
                     this.главнаяTableAdapter.Update(this.database1DataSet.Главная);
-
-                    this.database1DataSet.Главная.AcceptChanges();
-                    this.database1DataSet.AcceptChanges();
+                    //this.database1DataSet.Главная.AcceptChanges();
+                    //this.database1DataSet.AcceptChanges();
 
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Ошибка удаления"); }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            try { 
             if (tabControl2.SelectedIndex == 0)
             {
                 fam = new familyEdit(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
@@ -99,10 +101,16 @@ namespace Army
                 lang = new editLanguage(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
                 lang.Show();
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка. Проверьте выбираемые данные.");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            try { 
             if (tabControl2.SelectedIndex == 0)
             {
                 fam = new familyEdit(dataGridView3.CurrentRow, int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
@@ -117,6 +125,61 @@ namespace Army
             {
                 lang = new editLanguage(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()), dataGridView5.CurrentRow);
                 lang.Show();
+            }
+        }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка. Проверьте выбираемые данные.");
+            }
+}
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tabControl2.SelectedIndex == 0)
+                {
+                    if (MessageBox.Show("Действительно удалить ?", "Подтвердите удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        int id = int.Parse(dataGridView3.CurrentRow.Cells[0].Value.ToString());
+                        Database1DataSet.Состав_семьиRow row = database1DataSet.Состав_семьи.FindByИД(id);
+                        row.Delete();
+                        this.Validate();
+                        this.главнаяСоставСемьиBindingSource.EndEdit();
+                        this.состав_семьиTableAdapter.Update(this.database1DataSet.Состав_семьи);
+
+                    }
+                }
+                if (tabControl2.SelectedIndex == 1)
+                {
+                    if (MessageBox.Show("Действительно удалить ?", "Подтвердите удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        int id = int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
+                        Database1DataSet.УчебаRow row = database1DataSet.Учеба.FindByИД(id);
+                        row.Delete();
+                        this.Validate();
+                        this.главнаяУчебаBindingSource.EndEdit();
+                        this.учебаTableAdapter.Update(this.database1DataSet.Учеба);
+
+                    }
+                }
+                if (tabControl2.SelectedIndex == 2)
+                {
+                    if (MessageBox.Show("Действительно удалить ?", "Подтвердите удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        int id = int.Parse(dataGridView5.CurrentRow.Cells[0].Value.ToString());
+                        Database1DataSet.ИностранныйRow row = database1DataSet.Иностранный.FindByИД(id);
+                        row.Delete();
+                        this.Validate();
+                        this.иностранныйBindingSource.EndEdit();
+                        this.иностранныйTableAdapter.Update(this.database1DataSet.Иностранный);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка Удаления. Возможно остались связанные данные.");
             }
         }
     }

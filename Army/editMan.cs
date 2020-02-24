@@ -114,10 +114,11 @@ namespace Army
                 this.Close();
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ошибка добавления. Проверьте вводимые данные.");
             }
         }
         private void update() {
+            try { 
             //DataRow row = database1DataSet.Главная.Select(" ИД = " + id)[0];            
             Database1DataSet.НациональностьRow nation = (Database1DataSet.НациональностьRow)database1DataSet.Национальность.Select($" Название ='{comboBox8.SelectedValue}'")[0];
             Database1DataSet.Семейное_положениеRow family = (Database1DataSet.Семейное_положениеRow)database1DataSet.Семейное_положение.Select($" Название ='{comboBox3.SelectedValue}'")[0];
@@ -165,5 +166,10 @@ namespace Army
             MessageBox.Show("Обнавлено. Обновите форму для просмотра");
             this.Close();
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка Обновления. Проверьте вводимые данные.");
+            }
+}
     }
 }
