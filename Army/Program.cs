@@ -16,7 +16,11 @@ namespace Army
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+                Application.Run(new Form2());
+            }
+            catch (Exception ex) { Application.Run(new Form2()); }
         }
     }
 }
