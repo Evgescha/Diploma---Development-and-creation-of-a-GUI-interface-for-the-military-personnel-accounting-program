@@ -94,9 +94,11 @@ namespace Army
                 Database1DataSet.СпециализацияRow spec = (Database1DataSet.СпециализацияRow)database1DataSet.Специализация.Select($" Название ='{comboBox6.SelectedValue}'")[0];
                 Database1DataSet.ПодразделениеRow podr = (Database1DataSet.ПодразделениеRow)database1DataSet.Подразделение.Select($" Наименование ='{comboBox7.SelectedValue}'")[0];
                
-                database1DataSet.Главная.AddГлавнаяRow(textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker1.Value, comboBox1.Text,
-                    textBox5.Text, nation,
-                    family, textBox6.Text, textBox7.Text, textBox8.Text,
+                database1DataSet.Главная.AddГлавнаяRow(
+                    textBox2.Text, textBox3.Text, textBox4.Text, 
+                    dateTimePicker1.Value, comboBox1.Text,
+                    textBox5.Text, nation,  family, 
+                    textBox6.Text, textBox7.Text, textBox8.Text,
                     textBox9.Text, swan, textBox10.Text, dateTimePicker2.Value,
                     dolsh, textBox12.Text, textBox13.Text,
                     int.Parse(textBox14.Text), int.Parse(textBox15.Text),
@@ -108,6 +110,7 @@ namespace Army
 
                 this.database1DataSet.Главная.AcceptChanges();
                 this.database1DataSet.AcceptChanges();
+                MessageBox.Show("Добавлено. Обновите форму для просмотра");
                 this.Close();
             }
             catch (Exception ex) {
@@ -159,6 +162,8 @@ namespace Army
 
             this.database1DataSet.Главная.AcceptChanges();
             this.database1DataSet.AcceptChanges();
+            MessageBox.Show("Обнавлено. Обновите форму для просмотра");
+            this.Close();
         }
     }
 }

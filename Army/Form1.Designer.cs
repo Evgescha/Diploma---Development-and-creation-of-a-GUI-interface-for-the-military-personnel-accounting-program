@@ -109,6 +109,7 @@
             this.состав_семьиTableAdapter = new Army.Database1DataSetTableAdapters.Состав_семьиTableAdapter();
             this.учебаTableAdapter = new Army.Database1DataSetTableAdapters.УчебаTableAdapter();
             this.иностранныйTableAdapter = new Army.Database1DataSetTableAdapters.ИностранныйTableAdapter();
+            this.главнаяBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
@@ -129,6 +130,7 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.иностранныйBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.главнаяBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -216,6 +218,7 @@
             this.button5.TabIndex = 8;
             this.button5.Text = "Изменить";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -225,6 +228,7 @@
             this.button6.TabIndex = 7;
             this.button6.Text = "Добавить";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button3
             // 
@@ -234,6 +238,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -832,6 +837,11 @@
             // 
             this.иностранныйTableAdapter.ClearBeforeFill = true;
             // 
+            // главнаяBindingSource
+            // 
+            this.главнаяBindingSource.DataMember = "Главная";
+            this.главнаяBindingSource.DataSource = this.database1DataSet;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -863,6 +873,7 @@
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.иностранныйBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.главнаяBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -921,12 +932,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn подразделениеDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource главнаяСоставСемьиBindingSource;
         private Database1DataSetTableAdapters.Состав_семьиTableAdapter состав_семьиTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn иДDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn иДВоеннослужащегоDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn родственнаяСвязьDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn годРожденияDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn примечаниеDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource главнаяУчебаBindingSource;
         private Database1DataSetTableAdapters.УчебаTableAdapter учебаTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn иДDataGridViewTextBoxColumn2;
@@ -949,6 +954,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn степеньDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn примечаниеDataGridViewTextBoxColumn4;
         private System.Windows.Forms.BindingSource иностранныйBindingSource;
+        private System.Windows.Forms.BindingSource главнаяBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn иДDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn иДВоеннослужащегоDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn родственнаяСвязьDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn годРожденияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn примечаниеDataGridViewTextBoxColumn1;
     }
 }
 

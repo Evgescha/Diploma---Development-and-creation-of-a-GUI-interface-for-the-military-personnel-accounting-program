@@ -89,8 +89,6 @@
             this.подразделениеTableAdapter = new Army.Database1DataSetTableAdapters.ПодразделениеTableAdapter();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.главнаяBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.главнаяTableAdapter = new Army.Database1DataSetTableAdapters.ГлавнаяTableAdapter();
             this.иДDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,6 +113,8 @@
             this.специализацияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.примечаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.подразделениеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.главнаяBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.главнаяTableAdapter = new Army.Database1DataSetTableAdapters.ГлавнаяTableAdapter();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.национальностьBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
@@ -626,15 +626,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(258, 124);
             this.dataGridView1.TabIndex = 51;
-            // 
-            // главнаяBindingSource
-            // 
-            this.главнаяBindingSource.DataMember = "Главная";
-            this.главнаяBindingSource.DataSource = this.database1DataSet;
-            // 
-            // главнаяTableAdapter
-            // 
-            this.главнаяTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.Visible = false;
             // 
             // иДDataGridViewTextBoxColumn
             // 
@@ -779,6 +771,15 @@
             this.подразделениеDataGridViewTextBoxColumn.DataPropertyName = "Подразделение";
             this.подразделениеDataGridViewTextBoxColumn.HeaderText = "Подразделение";
             this.подразделениеDataGridViewTextBoxColumn.Name = "подразделениеDataGridViewTextBoxColumn";
+            // 
+            // главнаяBindingSource
+            // 
+            this.главнаяBindingSource.DataMember = "Главная";
+            this.главнаяBindingSource.DataSource = this.database1DataSet;
+            // 
+            // главнаяTableAdapter
+            // 
+            this.главнаяTableAdapter.ClearBeforeFill = true;
             // 
             // comboBox8
             // 

@@ -54,11 +54,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="editLang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editLang.Designer.cs">
+      <DependentUpon>editLang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editLanguage.Designer.cs">
+      <DependentUpon>editLanguage.cs</DependentUpon>
+    </Compile>
     <Compile Include="editMan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="editMan.Designer.cs">
       <DependentUpon>editMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="familyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="familyEdit.Designer.cs">
+      <DependentUpon>familyEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -80,8 +98,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="editLang.resx">
+      <DependentUpon>editLang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editLanguage.resx">
+      <DependentUpon>editLanguage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editMan.resx">
       <DependentUpon>editMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="familyEdit.resx">
+      <DependentUpon>familyEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
