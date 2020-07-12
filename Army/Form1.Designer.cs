@@ -429,11 +429,10 @@
             this.примечаниеDataGridViewTextBoxColumn5,
             this.подразделениеDataGridViewTextBoxColumn1});
             this.dataGridView7.DataSource = this.главнаяBindingSource;
-            this.dataGridView7.Location = new System.Drawing.Point(857, 352);
+            this.dataGridView7.Location = new System.Drawing.Point(10, 466);
             this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.Size = new System.Drawing.Size(222, 19);
+            this.dataGridView7.Size = new System.Drawing.Size(261, 167);
             this.dataGridView7.TabIndex = 12;
-            this.dataGridView7.Visible = false;
             // 
             // label1
             // 
