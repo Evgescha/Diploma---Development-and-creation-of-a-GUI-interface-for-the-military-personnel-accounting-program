@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Army.editLang">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQQAQAAQaSCABCQAACgAABCoAgIAgAAEEgAEEAMAgA=</HashCode>
+      <FileName>editLang.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Army.editLanguage">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIQAAIAAAOSDABCQAACgAAgCAAgIAgBAEFgAAEAEAgA=</HashCode>
+      <FileName>editLanguage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Army.editMan">
+    <Position X="9.5" Y="1" Width="1.5" />
+    <Members>
+      <Field Name="главнаяBindingSource" Hidden="true" />
+      <Field Name="главнаяTableAdapter" Hidden="true" />
+      <Field Name="датаПрисвоенияЗванияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="датаРожденияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="должностьBindingSource" Hidden="true" />
+      <Field Name="должностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="должностьTableAdapter" Hidden="true" />
+      <Field Name="званиеBindingSource" Hidden="true" />
+      <Field Name="званиеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="званиеTableAdapter" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="имяDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="кемИКогдаВыданDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="личныйНомерDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="местоРегистрацииDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="национальностьBindingSource" Hidden="true" />
+      <Field Name="национальностьBindingSource1" Hidden="true" />
+      <Field Name="национальностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="национальностьTableAdapter" Hidden="true" />
+      <Field Name="номерИДатаПриказаОНазначенииНаДолжностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="окончаниеКонтрактагодDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="отчествоDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="паспортСерияНомерDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="подразделениеBindingSource" Hidden="true" />
+      <Field Name="подразделениеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="подразделениеTableAdapter" Hidden="true" />
+      <Field Name="полDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="приказаПрисвоенияЗванияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="продолжительностьСлужбылетDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="семейное_положениеTableAdapter" Hidden="true" />
+      <Field Name="семейноеПоложениеBindingSource" Hidden="true" />
+      <Field Name="семейноеПоложениеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="служитСгодDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="специализацияBindingSource" Hidden="true" />
+      <Field Name="специализацияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="специализацияTableAdapter" Hidden="true" />
+      <Field Name="телефонDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="фамилияDataGridViewTextBoxColumn" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>/ygAAAAAgaTC4RCaECCkEEJCIQgNMgAAmEgiQMAEGvA=</HashCode>
+      <FileName>editMan.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Army.familyEdit">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQEAAAAAKSCIBCSABCgEABCAAgIAgAAEEgAAkBEAgA=</HashCode>
+      <FileName>familyEdit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Army.Form1">
+    <Position X="7" Y="0.5" Width="1.75" />
+    <Members>
+      <Field Name="главнаяBindingSource" Hidden="true" />
+      <Field Name="главнаяTableAdapter" Hidden="true" />
+      <Field Name="главнаяИностранныйBindingSource" Hidden="true" />
+      <Field Name="главнаяСоставСемьиBindingSource" Hidden="true" />
+      <Field Name="главнаяУчебаBindingSource" Hidden="true" />
+      <Field Name="годВыпускаDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="годПоступленияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="годРожденияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="датаПрисвоенияЗванияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="датаПрисвоенияЗванияDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="датаРожденияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="датаРожденияDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="должностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="должностьDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="званиеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="званиеDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn2" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn3" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn4" Hidden="true" />
+      <Field Name="иДDataGridViewTextBoxColumn5" Hidden="true" />
+      <Field Name="иДВоеннослужащегоDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="идВоеннослужащегоDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="иДВоеннослужащегоDataGridViewTextBoxColumn2" Hidden="true" />
+      <Field Name="иДВоеннослужащегоDataGridViewTextBoxColumn3" Hidden="true" />
+      <Field Name="имяDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="имяDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="иностранныйBindingSource" Hidden="true" />
+      <Field Name="иностранныйTableAdapter" Hidden="true" />
+      <Field Name="кемИКогдаВыданDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="кемИКогдаВыданDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="личныйНомерDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="личныйНомерDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="местоРегистрацииDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="местоРегистрацииDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="наименованиеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="национальностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="национальностьDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="номерИДатаПриказаОНазначенииНаДолжностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="номерИДатаПриказаОНазначенииНаДолжностьDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="окончаниеКонтрактагодDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="окончаниеКонтрактагодDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="отчествоDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="отчествоDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="паспортСерияНомерDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="паспортСерияНомерDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="подразделениеBindingSource" Hidden="true" />
+      <Field Name="подразделениеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="подразделениеDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="подразделениеTableAdapter" Hidden="true" />
+      <Field Name="подразделениеГлавнаяBindingSource" Hidden="true" />
+      <Field Name="полDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="полDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="приказаПрисвоенияЗванияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="приказаПрисвоенияЗванияDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn2" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn3" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn4" Hidden="true" />
+      <Field Name="примечаниеDataGridViewTextBoxColumn5" Hidden="true" />
+      <Field Name="продолжительностьСлужбылетDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="продолжительностьСлужбылетDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="родственнаяСвязьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="семейноеПоложениеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="семейноеПоложениеDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="служитСгодDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="служитСгодDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="состав_семьиTableAdapter" Hidden="true" />
+      <Field Name="специализацияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="специализацияDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="специальностьDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="степеньDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="степеньDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="телефонDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="телефонDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="учебаTableAdapter" Hidden="true" />
+      <Field Name="фамилияDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="фамилияDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="фИОDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="языкDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="языкDataGridViewTextBoxColumn1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>UACQUQKAQGRD4RiBkLCgsU6CrPs/MyICmvwOQMQBDBA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Army.Form2">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAICAAAAAAAACAAAACIAAYAAAAAGAAAAAAAAA=</HashCode>
+      <FileName>Form2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Army.Form3">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="bindingNavigator1" Hidden="true" />
+      <Field Name="bindingNavigator2" Hidden="true" />
+      <Field Name="bindingNavigator3" Hidden="true" />
+      <Field Name="bindingNavigator4" Hidden="true" />
+      <Field Name="bindingNavigator5" Hidden="true" />
+      <Field Name="bindingNavigator6" Hidden="true" />
+      <Field Name="bindingNavigator7" Hidden="true" />
+      <Field Name="bindingNavigator8" Hidden="true" />
+      <Field Name="bindingNavigator9" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem1" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem2" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem3" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem4" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem5" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem6" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem7" Hidden="true" />
+      <Field Name="bindingNavigatorCountItem8" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem1" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem2" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem3" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem4" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem5" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem6" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem7" Hidden="true" />
+      <Field Name="bindingNavigatorDeleteItem8" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem1" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem2" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem3" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem4" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem5" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem6" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem7" Hidden="true" />
+      <Field Name="bindingNavigatorMoveFirstItem8" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem1" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem2" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem3" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem4" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem5" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem6" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem7" Hidden="true" />
+      <Field Name="bindingNavigatorMoveLastItem8" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem1" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem2" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem3" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem4" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem5" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem6" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem7" Hidden="true" />
+      <Field Name="bindingNavigatorMoveNextItem8" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem1" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem2" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem3" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem4" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem5" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem6" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem7" Hidden="true" />
+      <Field Name="bindingNavigatorMovePreviousItem8" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem1" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem2" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem3" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem4" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem5" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem6" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem7" Hidden="true" />
+      <Field Name="bindingNavigatorPositionItem8" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator1" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator10" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator11" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator12" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator13" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator14" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator15" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator16" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator17" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator18" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator19" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator2" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator20" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator21" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator22" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator23" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator24" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator25" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator26" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator3" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator4" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator5" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator6" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator7" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator8" Hidden="true" />
+      <Field Name="bindingNavigatorSeparator9" Hidden="true" />
+      <Field Name="должностьBindingSource" Hidden="true" />
+      <Field Name="должностьTableAdapter" Hidden="true" />
+      <Field Name="званиеBindingSource" Hidden="true" />
+      <Field Name="званиеTableAdapter" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn2" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn3" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn4" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn5" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn6" Hidden="true" />
+      <Field Name="названиеDataGridViewTextBoxColumn7" Hidden="true" />
+      <Field Name="наименованиеDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="национальностьBindingSource" Hidden="true" />
+      <Field Name="национальностьTableAdapter" Hidden="true" />
+      <Field Name="подразделениеBindingSource" Hidden="true" />
+      <Field Name="подразделениеTableAdapter" Hidden="true" />
+      <Field Name="родственные_связиTableAdapter" Hidden="true" />
+      <Field Name="родственныеСвязиBindingSource" Hidden="true" />
+      <Field Name="семейное_положениеTableAdapter" Hidden="true" />
+      <Field Name="семейноеПоложениеBindingSource" Hidden="true" />
+      <Field Name="специализацияBindingSource" Hidden="true" />
+      <Field Name="специализацияTableAdapter" Hidden="true" />
+      <Field Name="языкиBindingSource" Hidden="true" />
+      <Field Name="языкиTableAdapter" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gIhUAIIVgijwBNMAMASMtGAbAfoPS4Lke3ugZhEAHUw=</HashCode>
+      <FileName>Form3.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Form2" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

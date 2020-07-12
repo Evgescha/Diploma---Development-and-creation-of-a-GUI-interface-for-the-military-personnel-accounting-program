@@ -30,6 +30,14 @@ namespace Army
             load();
         }
 
+        public Form1 Form1
+        {
+            get => default(Form1);
+            set
+            {
+            }
+        }
+
         private void editMan_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "database1DataSet.Главная". При необходимости она может быть перемещена или удалена.
@@ -170,6 +178,6 @@ namespace Army
             {
                 MessageBox.Show("Ошибка Обновления. Проверьте вводимые данные.");
             }
-}
+    }
     }
 }

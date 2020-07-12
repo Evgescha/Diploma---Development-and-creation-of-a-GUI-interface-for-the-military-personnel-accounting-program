@@ -29,6 +29,15 @@ namespace Army
             comboBox1.SelectedValue = fatId;
             load();
         }
+
+        public Form1 Form1
+        {
+            get => default(Form1);
+            set
+            {
+            }
+        }
+
         private void load() {
             id = int.Parse(currentRow.Cells[0].Value.ToString());
             comboBox1.SelectedText = currentRow.Cells[1].Value.ToString();

@@ -21,6 +21,14 @@ namespace Army
             InitializeComponent();
         }
 
+        public Form2 Form2
+        {
+            get => default(Form2);
+            set
+            {
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "database1DataSet.Иностранный". При необходимости она может быть перемещена или удалена.
