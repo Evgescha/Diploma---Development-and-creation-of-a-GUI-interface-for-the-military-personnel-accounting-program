@@ -12,9 +12,13 @@ namespace Army
 {
     public partial class Form1 : Form
     {
+        // форма работы с военнослужащим
         editMan man;
+        // форма работы с родственниками
         familyEdit fam;
+        // форма работы с учебой служащего
         editLang uh;
+        // форма работы с иностранными языками
         editLanguage lang;
         public Form1()
         {
@@ -81,13 +85,13 @@ namespace Army
             this.главнаяTableAdapter.Fill(this.database1DataSet.Главная);
 
         }
-
+        // добавить служащего
         private void button1_Click(object sender, EventArgs e)
         {
             man = new editMan(-1);
             man.Show();
         }
-
+        // редактировать служащего
         private void button2_Click(object sender, EventArgs e)
         {
             try {
@@ -95,7 +99,7 @@ namespace Army
                 man.Show();
             } catch (Exception ex) { MessageBox.Show("Ошибка при попытке изменить выбранного служащего"); }
         }
-
+        // удалить служащего
         private void button3_Click(object sender, EventArgs e)
         {
             try
@@ -118,61 +122,71 @@ namespace Army
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
-
+        // добавить свойство для выбранного служащего
         private void button6_Click(object sender, EventArgs e)
         {
-            try { 
-            if (tabControl2.SelectedIndex == 0)
-            {
-                fam = new familyEdit(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
-                fam.Show();
-            }
-            if (tabControl2.SelectedIndex == 1)
-            {
-                uh = new editLang(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
-                uh.Show();
-            }
-            if (tabControl2.SelectedIndex == 2)
-            {
-                lang = new editLanguage(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
-                lang.Show();
-            }
+            
+            try {
+                // если открыта вкладка родственника
+                if (tabControl2.SelectedIndex == 0)
+                {
+                    fam = new familyEdit(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
+                    fam.Show();
+                }
+                // если открыта вкладка учебы
+                else if (tabControl2.SelectedIndex == 1)
+                {
+                    uh = new editLang(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
+                    uh.Show();
+                }
+                // если открыта вкладка иностранного
+                else if (tabControl2.SelectedIndex == 2)
+                {
+                    lang = new editLanguage(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
+                    lang.Show();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка. Проверьте выбираемые данные.");
             }
         }
-
+        // редактирование свойств служащего
         private void button5_Click(object sender, EventArgs e)
-        {
-            try { 
-            if (tabControl2.SelectedIndex == 0)
-            {
-                fam = new familyEdit(dataGridView3.CurrentRow, int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
-                fam.Show();
+        { 
+            
+
+            try {
+                // если открыта вкладка родственника
+                if (tabControl2.SelectedIndex == 0)
+                {
+                    fam = new familyEdit(dataGridView3.CurrentRow, int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()));
+                    fam.Show();
+                }
+                // если открыта вкладка учебы
+                else if (tabControl2.SelectedIndex == 1)
+                {
+                    uh = new editLang(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()), dataGridView4.CurrentRow);
+                    uh.Show();
+                }
+                // если открыта вкладка иностранного
+                else if (tabControl2.SelectedIndex == 2)
+                {
+                    lang = new editLanguage(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()), dataGridView5.CurrentRow);
+                    lang.Show();
+                }
             }
-            if (tabControl2.SelectedIndex == 1)
-            {
-                uh = new editLang(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()), dataGridView4.CurrentRow);
-                uh.Show();
-            }
-            if (tabControl2.SelectedIndex == 2)
-            {
-                lang = new editLanguage(int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString()), dataGridView5.CurrentRow);
-                lang.Show();
-            }
-        }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка. Проверьте выбираемые данные.");
             }
 }
-
+        // удаление свойств служащего
         private void button4_Click(object sender, EventArgs e)
         {
             try
             {
+                // удаляем рожственников
                 if (tabControl2.SelectedIndex == 0)
                 {
                     if (MessageBox.Show("Действительно удалить ?", "Подтвердите удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -186,7 +200,8 @@ namespace Army
 
                     }
                 }
-                if (tabControl2.SelectedIndex == 1)
+                // удаляем учебу
+                else if (tabControl2.SelectedIndex == 1)
                 {
                     if (MessageBox.Show("Действительно удалить ?", "Подтвердите удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -199,7 +214,8 @@ namespace Army
 
                     }
                 }
-                if (tabControl2.SelectedIndex == 2)
+                // удаляем иностранный
+                else if (tabControl2.SelectedIndex == 2)
                 {
                     if (MessageBox.Show("Действительно удалить ?", "Подтвердите удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -216,6 +232,20 @@ namespace Army
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка Удаления. Возможно остались связанные данные.");
+            }
+        }
+        // нажатие по служащему, сделано для корректного отображения свойств служащего
+        private void dataGridView2_Click(object sender, EventArgs e)
+        {
+            // если нажали не на пустое место
+            if (dataGridView2.CurrentRow != null) {
+                // запоминаем ид текущего служащего
+                string id = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+                // в невидимой таблице ищем его и выбираем
+                for (int i = 0; i < dataGridView7.RowCount; i++) {
+                    if (dataGridView7[0, i].Value.ToString().Equals(id))
+                        dataGridView7.CurrentCell = dataGridView7[0, i];
+                }
             }
         }
     }

@@ -252,7 +252,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "editLanguage";
-            this.Text = "editLanguage";
+            this.Text = "Иностранный язык";
             this.Load += new System.EventHandler(this.editLanguage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.главнаяBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();

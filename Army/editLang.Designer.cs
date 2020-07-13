@@ -277,7 +277,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "editLang";
-            this.Text = "editLang";
+            this.Text = "Учеба";
             this.Load += new System.EventHandler(this.editLang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.главнаяBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();

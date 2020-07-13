@@ -46,6 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArmyList.Designer.cs">
+      <DependentUpon>ArmyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Beseda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Beseda.Designer.cs">
+      <DependentUpon>Beseda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commandir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commandir.Designer.cs">
+      <DependentUpon>Commandir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Condidats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Condidats.Designer.cs">
+      <DependentUpon>Condidats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CondidatsLearning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CondidatsLearning.Designer.cs">
+      <DependentUpon>CondidatsLearning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database1DataSet.cs">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </Compile>
@@ -53,6 +83,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Disciplin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Disciplin.Designer.cs">
+      <DependentUpon>Disciplin.cs</DependentUpon>
     </Compile>
     <Compile Include="editLang.cs">
       <SubType>Form</SubType>
@@ -71,6 +107,12 @@
     </Compile>
     <Compile Include="editMan.Designer.cs">
       <DependentUpon>editMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyAbroad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyAbroad.Designer.cs">
+      <DependentUpon>FamilyAbroad.cs</DependentUpon>
     </Compile>
     <Compile Include="familyEdit.cs">
       <SubType>Form</SubType>
@@ -96,8 +138,32 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pooschren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pooschren.Designer.cs">
+      <DependentUpon>Pooschren.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArmyList.resx">
+      <DependentUpon>ArmyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Beseda.resx">
+      <DependentUpon>Beseda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commandir.resx">
+      <DependentUpon>Commandir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Condidats.resx">
+      <DependentUpon>Condidats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CondidatsLearning.resx">
+      <DependentUpon>CondidatsLearning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Disciplin.resx">
+      <DependentUpon>Disciplin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editLang.resx">
       <DependentUpon>editLang.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editMan.resx">
       <DependentUpon>editMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyAbroad.resx">
+      <DependentUpon>FamilyAbroad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="familyEdit.resx">
       <DependentUpon>familyEdit.cs</DependentUpon>
@@ -118,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pooschren.resx">
+      <DependentUpon>Pooschren.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
