@@ -36,19 +36,13 @@ namespace Army
         CondidatsLearning condidatsLearning;
         //разговор с кондидатом
         Beseda beseda;
-
         public Form1()
         {
             InitializeComponent();
+
         }
 
-        public Form2 Form2
-        {
-            get => default(Form2);
-            set
-            {
-            }
-        }
+      
         private void upload() {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "database1DataSet.Дисциплинарные_взыскания". При необходимости она может быть перемещена или удалена.
             this.дисциплинарные_взысканияTableAdapter.Fill(this.database1DataSet.Дисциплинарные_взыскания);
@@ -98,11 +92,12 @@ namespace Army
             this.состав_семьиTableAdapter.Fill(this.database1DataSet.Состав_семьи);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "database1DataSet.Главная". При необходимости она может быть перемещена или удалена.
             this.главнаяTableAdapter.Fill(this.database1DataSet.Главная);
+           
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             upload();
-
+            loadNames();
         }
         // добавить служащего
         private void button1_Click(object sender, EventArgs e)
@@ -143,6 +138,9 @@ namespace Army
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
+
+
+
         // добавить свойство для выбранного служащего
         private void button6_Click(object sender, EventArgs e)
         {
@@ -389,9 +387,9 @@ namespace Army
                 MessageBox.Show("Ошибка Удаления. Возможно остались связанные данные.");
             }
         }
-        
-        
-        
+
+
+
         // нажатие по служащему, сделано для корректного отображения свойств служащего
         private void dataGridView2_Click(object sender, EventArgs e)
         {
@@ -490,7 +488,7 @@ namespace Army
                 // учеба
                 if (tabControl3.SelectedIndex == 0)
                 {
-                    condidatsLearning = new CondidatsLearning(int.Parse(dataGridView8.CurrentRow.Cells[0].Value.ToString()),dataGridView20.CurrentRow);
+                    condidatsLearning = new CondidatsLearning(int.Parse(dataGridView8.CurrentRow.Cells[0].Value.ToString()), dataGridView20.CurrentRow);
                     condidatsLearning.Show();
                 }
                 //беседа
@@ -545,9 +543,67 @@ namespace Army
             }
         }
 
+
+        // обновление данных
         private void button13_Click(object sender, EventArgs e)
         {
             upload();
+            loadNames();
+        }
+        //загрузка имен военных для таблиц
+        private void loadNames()
+        {
+            //иностранный
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                try
+                {
+                    int index1 = главнаяBindingSource.Find("ИД", dataGridView1[1, i].Value.ToString());
+                    dataGridView1[2, i].Value = ((DataRowView)(главнаяBindingSource[index1]))[1]+" "+ ((DataRowView)(главнаяBindingSource[index1]))[2]+" "+ ((DataRowView)(главнаяBindingSource[index1]))[3];
+                }
+                catch (Exception ex) { Console.WriteLine("нет элемента"); }
+               
+            }
+            //командировки
+            for (int i = 0; i < dataGridView9.RowCount; i++)
+            {
+                try
+                {
+                    int index1 = главнаяBindingSource.Find("ИД", dataGridView9[1, i].Value.ToString());
+                    dataGridView9[2, i].Value = ((DataRowView)(главнаяBindingSource[index1]))[1] + " " + ((DataRowView)(главнаяBindingSource[index1]))[2] + " " + ((DataRowView)(главнаяBindingSource[index1]))[3];
+                }
+                catch (Exception ex) { Console.WriteLine("нет элемента"); }
+            }
+            //поощрения
+            for (int i = 0; i < dataGridView12.RowCount; i++)
+            {
+                try
+                {
+                    int index1 = главнаяBindingSource.Find("ИД", dataGridView12[1, i].Value.ToString());
+                    dataGridView12[2, i].Value = ((DataRowView)(главнаяBindingSource[index1]))[1] + " " + ((DataRowView)(главнаяBindingSource[index1]))[2] + " " + ((DataRowView)(главнаяBindingSource[index1]))[3];
+                }
+                catch (Exception ex) { Console.WriteLine("нет элемента"); }
+            }
+            //взыскания
+            for (int i = 0; i < dataGridView13.RowCount; i++)
+            {
+                try
+                {
+                    int index1 = главнаяBindingSource.Find("ИД", dataGridView13[1, i].Value.ToString());
+                    dataGridView13[2, i].Value = ((DataRowView)(главнаяBindingSource[index1]))[1] + " " + ((DataRowView)(главнаяBindingSource[index1]))[2] + " " + ((DataRowView)(главнаяBindingSource[index1]))[3];
+                }
+                catch (Exception ex) { Console.WriteLine("нет элемента"); }
+            }
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            loadNames();
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            loadNames();
         }
     }
 }
