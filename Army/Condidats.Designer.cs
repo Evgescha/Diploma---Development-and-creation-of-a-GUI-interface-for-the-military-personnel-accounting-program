@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,11 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.database1DataSet = new Army.Database1DataSet();
+            this.кандидатыНаВоеннуюСлужбуBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.кандидаты_на_военную_службуTableAdapter = new Army.Database1DataSetTableAdapters.Кандидаты_на_военную_службуTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.кандидатыНаВоеннуюСлужбуBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,6 +191,21 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // database1DataSet
+            // 
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // кандидатыНаВоеннуюСлужбуBindingSource
+            // 
+            this.кандидатыНаВоеннуюСлужбуBindingSource.DataMember = "Кандидаты на военную службу";
+            this.кандидатыНаВоеннуюСлужбуBindingSource.DataSource = this.database1DataSet;
+            // 
+            // кандидаты_на_военную_службуTableAdapter
+            // 
+            this.кандидаты_на_военную_службуTableAdapter.ClearBeforeFill = true;
             // 
             // Condidats
             // 
@@ -210,6 +231,9 @@
             this.Controls.Add(this.label1);
             this.Name = "Condidats";
             this.Text = "Кандидаты";
+            this.Load += new System.EventHandler(this.Condidats_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.кандидатыНаВоеннуюСлужбуBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +258,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button1;
+        private Database1DataSet database1DataSet;
+        private System.Windows.Forms.BindingSource кандидатыНаВоеннуюСлужбуBindingSource;
+        private Database1DataSetTableAdapters.Кандидаты_на_военную_службуTableAdapter кандидаты_на_военную_службуTableAdapter;
     }
 }
